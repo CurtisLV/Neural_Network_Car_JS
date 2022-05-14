@@ -1,8 +1,8 @@
 class Controls {
     constructor() {
         this.forward = false;
-        this.right = false;
         this.left = false;
+        this.right = false;
         this.reverse = false;
 
         this.#addKeyboardListeners();
@@ -23,8 +23,6 @@ class Controls {
                 case 'ArrowDown':
                     this.reverse = true;
                     break;
-                default:
-                    return;
             }
         };
         document.onkeyup = (event) => {
@@ -41,10 +39,7 @@ class Controls {
                 case 'ArrowDown':
                     this.reverse = false;
                     break;
-                default:
-                    return;
             }
-            console.table(this);
         };
     }
 }

@@ -13,7 +13,7 @@ class Visualizer {
         const right = left + width;
         const bottom = top + height;
 
-        const { inputs, outputs } = level;
+        const { inputs, outputs, weights, biases } = level;
 
         for (let i = 0; i < inputs.length; i++) {
             for (let j = 0; j < outputs.length; j++) {
@@ -24,8 +24,7 @@ class Visualizer {
                 );
                 ctx.lineTo(Visualizer.#getNodeX(outputs, j, left, right), top);
                 ctx.lineWidth = 2;
-                ctx.strokeStyle =
-                    'rgba(' + R + ', ' + G + ', ' + B + ', ' + alpha + ')';
+                ctx.strokeStyle = getRGBA(weights[i][j]);
                 ctx.stroke();
             }
         }
@@ -36,15 +35,32 @@ class Visualizer {
             const x = Visualizer.#getNodeX(inputs, i, left, right);
             ctx.beginPath();
             ctx.arc(x, bottom, nodeRadius, 0, Math.PI * 2);
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'black';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x, bottom, nodeRadius * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = getRGBA(inputs[i]);
             ctx.fill();
         }
         for (let i = 0; i < outputs.length; i++) {
             const x = Visualizer.#getNodeX(outputs, i, left, right);
             ctx.beginPath();
             ctx.arc(x, top, nodeRadius, 0, Math.PI * 2);
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'black';
             ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(x, top, nodeRadius * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = getRGBA(outputs[i]);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.arc(x, top, nodeRadius * 0.8, 0, Math.PI * 2);
+            ctx.strokeStyle = getRGBA(biases[i]);
+            ctx.setLineDash([3, 3]);
+            ctx.stroke();
+            ctx.setLineDash([]);
         }
     }
 

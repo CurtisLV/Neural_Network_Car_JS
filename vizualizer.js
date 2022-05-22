@@ -14,6 +14,22 @@ class Visualizer {
         const bottom = top + height;
 
         const { inputs, outputs } = level;
+
+        for (let i = 0; i < inputs.length; i++) {
+            for (let j = 0; j < outputs.length; j++) {
+                ctx.beginPath();
+                ctx.moveTo(
+                    Visualizer.#getNodeX(inputs, i, left, right),
+                    bottom
+                );
+                ctx.lineTo(Visualizer.#getNodeX(outputs, j, left, right), top);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle =
+                    'rgba(' + R + ', ' + G + ', ' + B + ', ' + alpha + ')';
+                ctx.stroke();
+            }
+        }
+
         const nodeRadius = 18;
 
         for (let i = 0; i < inputs.length; i++) {
@@ -29,19 +45,6 @@ class Visualizer {
             ctx.arc(x, top, nodeRadius, 0, Math.PI * 2);
             ctx.fillStyle = 'white';
             ctx.fill();
-        }
-        for (let i = 0; i < inputs.length; i++) {
-            for (let j = 0; j < outputs.length; j++) {
-                ctx.beginPath();
-                ctx.moveTo(
-                    Visualizer.#getNodeX(inputs, i, left, right),
-                    bottom
-                );
-                ctx.lineTo(Visualizer.#getNodeX(outputs, j, left, right), top);
-                ctx.lineWidth = 2;
-                ctx.strokeStyle = 'orange';
-                ctx.stroke();
-            }
         }
     }
 

@@ -40,8 +40,13 @@ const traffic = [
     new Car(road.getLaneCenter(2), -1900, 30, 50, 'DUMMY', 2),
     new Car(road.getLaneCenter(1), -2200, 30, 50, 'DUMMY', 2),
     new Car(road.getLaneCenter(0), -2200, 30, 50, 'DUMMY', 2),
-    new Car(road.getLaneCenter(2), -2500, 30, 50, 'DUMMY', 2),
-    new Car(road.getLaneCenter(0), -2500, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(2), -2350, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(0), -2570, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(1), -2740, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(2), -2740, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(1), -2950, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(0), -3090, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(2), -3090, 30, 50, 'DUMMY', 2),
 ];
 
 animate();

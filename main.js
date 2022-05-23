@@ -9,7 +9,7 @@ console.log(networkCtx);
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9);
 
-const N = 2;
+const N = 100;
 const cars = generateCars(N);
 let bestCar = cars[0];
 if (localStorage.getItem('bestBrain')) {
@@ -33,6 +33,13 @@ const traffic = [
     new Car(road.getLaneCenter(2), -1100, 30, 50, 'DUMMY', 2),
     new Car(road.getLaneCenter(1), -1300, 30, 50, 'DUMMY', 2),
     new Car(road.getLaneCenter(2), -1300, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(0), -1500, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(1), -1500, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(0), -1700, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(2), -1700, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(1), -1900, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(1), -2100, 30, 50, 'DUMMY', 2),
+    new Car(road.getLaneCenter(2), -2300, 30, 50, 'DUMMY', 2),
 ];
 
 animate();
